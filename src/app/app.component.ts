@@ -8,6 +8,7 @@ import { OidcSecurityService } from 'angular-auth-oidc-client';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+  list: any[] = [];
 
   constructor(public oidcSecurityService: OidcSecurityService,
     public http: HttpClient) {
@@ -34,10 +35,10 @@ export class AppComponent implements OnInit {
       headers: new HttpHeaders({
         Authorization: 'Bearer ' + token,
       }),
-      responseType: 'text'
+      responseType: 'json'
     })
       .subscribe((data: any) => {
-        console.log("api result:", data);
+        this.list= data;
       });
   }
 }

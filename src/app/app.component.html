@@ -2,3 +2,10 @@
   <button (click)="login()">Login</button>
   <button (click)="callApi()">Call Api</button>
 </div>
+
+
+<div *ngFor="let item of list">
+  <p >
+    item : {{item.name}}
+  </p>
+</div>
